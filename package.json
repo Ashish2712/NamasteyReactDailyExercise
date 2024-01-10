@@ -1,0 +1,19 @@
+{
+  "name": "namasteyreactdailyexercise",
+  "version": "1.0.0",
+  "description": "This is exercise on namastey react",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "(https://github.com/Ashish2712/NamasteyReactDailyExercise.git)"
+  },
+  "keywords": [
+    "Namastey",
+    "react"
+  ],
+  "author": "Ashish",
+  "license": "ISC"
+}
