@@ -1,0 +1,11 @@
+Bundler - codes needs to be minified, cleaned
+webpack,babel, parcel, weed - all these are bundlers, it bundles our app and ship it to the production.
+
+types of dependencies
+1. Dev - required only while developing the product
+2. Normal - required normally, during production
+
+^2.11.0 -> carrot sign is used to auto upgrade the version of the module
+~2.11.0 -> It will install the major version of the module automatically
+
+so putting carrot sign helps you not to auto upgrade to major version.
