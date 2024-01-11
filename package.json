@@ -2,7 +2,6 @@
   "name": "namasteyreactdailyexercise",
   "version": "1.0.0",
   "description": "This is exercise on namastey react",
-  "main": "App.js",
   "scripts": {
     "test": "jest"
   },
@@ -15,5 +14,15 @@
     "react"
   ],
   "author": "Ashish",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.11.0"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "browserslists" : [
+    "last 2 versions"
+  ]
 }
