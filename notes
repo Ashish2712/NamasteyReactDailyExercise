@@ -12,3 +12,37 @@ so putting carrot sign helps you not to auto upgrade to major version.
 
 transitive dependencies -> one module is dependent on other modules is termed as transitive dependency.
 
+npm - calling the command of npm, which is a package manager
+npx - to execute the package
+how does a package is executed ?
+Ex: npx parcel index.html -> here parcel ignite the app by running server on localhost
+
+cdn links is not a good way to bring react in your project, as it requires network call to the cdn network
+and bring the react to your project, instead of having react as modules in your local system is a prefered way.
+
+browser scripts cannot have imports or exports -> put type="module" inside script tag in index.html
+
+# Parcel
+- Dev build
+- Local server
+- HMR - Hot module replacement
+- File watching algorithm, written in C++
+- faster build - because of caching inside .parcel-cache
+- Image optimization
+- Minification
+- Bundling
+- Compress
+- Diagnostic
+- Error Handling
+- HTTPS
+- Tree Shaking - remove unused code 
+- Different Dev and Prod bundles
+https://parceljs.org/docs/ 
+
+Main  in package.json is responsible for entrypoint in the app.
+
+when you run npx parcel index.html
+parcel creates the file inside dist folder now everytime when you save parcel get's the file
+from .parcel-cahce using HMR(Hot module replacement)
+
+npx parcel build index.html -> command to build production build
