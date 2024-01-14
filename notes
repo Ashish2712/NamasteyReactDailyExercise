@@ -46,3 +46,17 @@ parcel creates the file inside dist folder now everytime when you save parcel ge
 from .parcel-cahce using HMR(Hot module replacement)
 
 npx parcel build index.html -> command to build production build
+
+
+JSX -> Javascript syntax to create react elemenet
+----------------------------------
+Creating food delivery app - first design the wireframe/Mock plan things what needs to
+be present on the page
+
+to dynamically data to a component will pass using props
+config driven UI -> UI is driven by config(ex: based on the location UI will change)
+
+why we need unique keys in react
+to optimise the re-rendering of react, react needs to uniquely identify them using the key
+
+using index as Id is not recommended way, but best practice is to use a unique id.
