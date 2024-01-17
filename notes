@@ -22,23 +22,6 @@ and bring the react to your project, instead of having react as modules in your 
 
 browser scripts cannot have imports or exports -> put type="module" inside script tag in index.html
 
-# Parcel
-- Dev build
-- Local server
-- HMR - Hot module replacement
-- File watching algorithm, written in C++
-- faster build - because of caching inside .parcel-cache
-- Image optimization
-- Minification
-- Bundling
-- Compress
-- Diagnostic
-- Error Handling
-- HTTPS
-- Tree Shaking - remove unused code 
-- Different Dev and Prod bundles
-https://parceljs.org/docs/ 
-
 Main  in package.json is responsible for entrypoint in the app.
 
 when you run npx parcel index.html
@@ -60,3 +43,34 @@ why we need unique keys in react
 to optimise the re-rendering of react, react needs to uniquely identify them using the key
 
 using index as Id is not recommended way, but best practice is to use a unique id.
+
+named export comes handy when you want to install mutiple things from a file
+ex: export CDN_URL
+import {CDN_URL} from "path to the CDN_URL"
+
+whenever a state variable updates, react will re-render the component
+
+ReactDom Package enables:
+1. render() - This method renders one or more components.
+2. findDOMNode() - This method retreives tge DOM node where a specific react component is rendered.
+3. unmountComponentAtNode() - This method removes or unmount a specific React component
+4. hydrate() - This method is similar to render() method. However, it enables server-side rendering.
+5. createPortal() - This method renders the component into a DOM node that sits outside the current DOM.
+
+Virtual DOM vs Shadow DOM
+
+   Virtual DOM                                                                                 Shadow DOM
+1. Used for solving performance issues                             1.Used for encapsulating and isolating elements
+2. This technology uses JS libs such as React.js and Vue.js        2. The web browser itself implements this tech
+3. It creates a copy of entire DOM in the memory                   3. It doesn't create the complete representation of the      
+                                                                   entire DOM. it adds subtrees of DOM elements into the    
+                                                                   document instead of adding them to the main DOM tree.
+4. It doesn't implement CSS scoping since it creates a copy of     4. This tech creates separate sub trees of the DOM   
+ DOM                                                                   elements and, therefore facilitates their isolation and enables CSS scoping
+
+ So Virtual DOM and shadow DOM are different and serves the different purpose, if there is a usecase where isolation is 
+ prefered then use shadow DOM. However for solving performance issues it's better to use virtual DOM.
+
+
+ 
+                                                                                                                            
