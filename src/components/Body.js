@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
 import resList from "../utils/mockData";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
-  const [listOfRestaurants, setListOfRestaurants] = useState(resList);
+  const [listOfRestaurants, setListOfRestaurants] = useState([]);
 
   useEffect(() => {
     fetchData();
@@ -20,7 +21,9 @@ const Body = () => {
       }
 
       const data = await response.json();
-      setListOfRestaurants(data.data); // Assuming the restaurant data is under the 'data' property
+      console.log(data);
+
+      setListOfRestaurants(data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants); // Assuming the restaurant data is under the 'data' property
     } catch (error) {
       console.error("Error fetching data:", error.message);
       // Handle the error appropriately, such as showing an error message to the user.
@@ -31,6 +34,10 @@ const Body = () => {
     const filteredList = resList.filter((res) => res.info.avgRating > 4.2);
     setListOfRestaurants(filteredList);
   };
+
+  if (listOfRestaurants.length === 0){
+    return <Shimmer />;
+  }
 
   return (
     <div className="body">
