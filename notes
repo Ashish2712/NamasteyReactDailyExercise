@@ -71,6 +71,9 @@ Virtual DOM vs Shadow DOM
  So Virtual DOM and shadow DOM are different and serves the different purpose, if there is a usecase where isolation is 
  prefered then use shadow DOM. However for solving performance issues it's better to use virtual DOM.
 
+The useState function is a hook that returns a tuple containing the current state value and a function to update that state. 
+The type of the state is generic (S), and the initial state can be provided directly or through a function
+
 
  
                                                                                                                             
