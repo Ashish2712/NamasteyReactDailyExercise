@@ -71,21 +71,6 @@ Virtual DOM vs Shadow DOM
  So Virtual DOM and shadow DOM are different and serves the different purpose, if there is a usecase where isolation is 
  prefered then use shadow DOM. However for solving performance issues it's better to use virtual DOM.
 
-The useState function is a hook that returns a tuple containing the current state value and a function to update that state. 
-The type of the state is generic (S), and the initial state can be provided directly or through a function
 
- useEffect(() => {
-   console.log("useEffect called")
- }, []);
-useEffect rendered scenarios:
-1. When no dependency array is given it will called everytime component is rendered.
-2. [] -> when empty dependency array is provided, it will render only once.
-3. [something] -> if we put something inside the dependency array, useEffect will be called only when dependency changes.
-    ex: btnReact if we have any button named "btnReact" useEffect() will be called everytime there is a change in "btnReact".
  
-* Never use useEffect inside in the if else condition
-* Don't do inside the function
-* Don't do inside the curly braces
-
-Never ever use Anchor tag in react, to go to another page
-Reason: It refreshes the whole page(reloads the page)
+                                                                                                                            
