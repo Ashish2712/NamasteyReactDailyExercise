@@ -38,8 +38,10 @@ const Body = () => {
   };
 
   const handleFilter = () => {
-    const filteredList = resList.filter((res) => res.info.avgRating > 4.2);
-    setListOfRestaurants(filteredList);
+    console.log(listOfRestaurants.length);
+    const filteredList = listOfRestaurants.filter((res) => res.info.avgRating > 4.2);
+    console.log(filteredList.length);
+    setFilteredRestaurants(filteredList);
   };
 
   return listOfRestaurants.length === 0 ? (
