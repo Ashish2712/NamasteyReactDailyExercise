@@ -27,7 +27,6 @@ const Body = () => {
       }
 
       const data = await response.json();
-      console.log(data);
 
       setListOfRestaurants(data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants); // Assuming the restaurant data is under the 'data' property
       setFilteredRestaurants(data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
@@ -38,9 +37,7 @@ const Body = () => {
   };
 
   const handleFilter = () => {
-    console.log(listOfRestaurants.length);
     const filteredList = listOfRestaurants.filter((res) => res.info.avgRating > 4.2);
-    console.log(filteredList.length);
     setFilteredRestaurants(filteredList);
   };
 
@@ -62,7 +59,6 @@ const Body = () => {
             onClick={() => {
               // filter the restaurant cards and update the UI
               // searchText
-              console.log(searchText);
               const filteredRestaurant = listOfRestaurants.filter((res) =>
                 res.info.name.toLowerCase().includes(searchText.toLowerCase())
               );
