@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
 import resList from "../utils/mockData";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   // Local state variable - Super powerful variable
@@ -27,9 +28,14 @@ const Body = () => {
       }
 
       const data = await response.json();
+      console.log(data);
 
-      setListOfRestaurants(data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants); // Assuming the restaurant data is under the 'data' property
-      setFilteredRestaurants(data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
+      setListOfRestaurants(
+        data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants
+      ); // Assuming the restaurant data is under the 'data' property
+      setFilteredRestaurants(
+        data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants
+      );
     } catch (error) {
       console.error("Error fetching data:", error.message);
       // Handle the error appropriately, such as showing an error message to the user.
@@ -37,7 +43,11 @@ const Body = () => {
   };
 
   const handleFilter = () => {
-    const filteredList = listOfRestaurants.filter((res) => res.info.avgRating > 4.2);
+    console.log(listOfRestaurants.length);
+    const filteredList = listOfRestaurants.filter(
+      (res) => res.info.avgRating > 4.2
+    );
+    console.log(filteredList.length);
     setFilteredRestaurants(filteredList);
   };
 
@@ -59,6 +69,7 @@ const Body = () => {
             onClick={() => {
               // filter the restaurant cards and update the UI
               // searchText
+              console.log(searchText);
               const filteredRestaurant = listOfRestaurants.filter((res) =>
                 res.info.name.toLowerCase().includes(searchText.toLowerCase())
               );
@@ -76,7 +87,12 @@ const Body = () => {
       </div>
       <div className="res-container">
         {filteredRestaurants.map((restaurant) => (
-          <RestaurantCard key={restaurant.info.id} resData={restaurant} />
+          <Link
+            key={restaurant.info.id}
+            to={"/restaurants/" + restaurant.info.id}
+          >
+            <RestaurantCard resData={restaurant} />
+          </Link>
         ))}
       </div>
     </div>
