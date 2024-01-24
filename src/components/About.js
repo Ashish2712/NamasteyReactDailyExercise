@@ -22,7 +22,8 @@ render(){
           <h1>About</h1>
           <h2>Welcome to the new series of React!</h2>
           {/* <User name={"Ashish Singh (function)"} /> */}
-          <UserClass  name={"Ashish Singh (class)"}/>
+          <UserClass  name={"Ashish Singh"} location={"Bhind"}/>
+          <UserClass  name={"Shivan Singh"} location={"Gwalior"}/>
         </div>
       );
 }

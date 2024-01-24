@@ -9,15 +9,15 @@ class UserClass extends React.Component{
             count : 0,
         }
 
-        console.log("child constructor is called!")
+        console.log(this.props.name + " child constructor is called!")
     }
 
     componentDidMount(){
-        console.log("Child componentDidMount is called!")
+        console.log(this.props.name + " child componentDidMount is called!")
     }
 
     render() {
-        console.log("Child render is called!");
+        console.log(this.props.name + " Child render is called!");
         const {name} = this.props;
         const {count, count2} = this.state
         return(
@@ -29,8 +29,8 @@ class UserClass extends React.Component{
                     {count: this.state.count + 1}
                 );
                 }}>Count Increase</button>
-                <h2>Name: {name}</h2>
-                <h3>Location: Noida </h3>
+                <h2>Name: {this.props.name}</h2>
+                <h3>Location: {this.props.location} </h3>
                 <h4>Social Media: Not available</h4>
             </div>
         );
