@@ -72,5 +72,8 @@ Virtual DOM vs Shadow DOM
  prefered then use shadow DOM. However for solving performance issues it's better to use virtual DOM.
 
 
+
+Mounting cycle of react components
+1. Constructor is called -> render() -> componentDidMount() is called
  
                                                                                                                             
