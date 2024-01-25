@@ -17,7 +17,7 @@ class UserClass extends React.Component{
     }
 
     componentDidUpdate(){
-        console.log("component is updated!")
+        console.log("component is updated")
     }
 
     componentWillUnmount(){
