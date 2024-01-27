@@ -83,4 +83,10 @@ https://dev.to/codeofrelevancy/what-is-the-purpose-of-using-super-constructor-wi
 
 This is because the useEffect hook expects its effect function to return either a cleanup function or nothing at all. This is due to the useEffect() hook's callback function's asynchronous execution and lack of blocking.
 https://dev.to/sanjampreetsingh/why-async-callback-cannot-happen-in-react-useeffect-hook-ff#:~:text=This%20is%20because%20the%20useEffect,execution%20and%20lack%20of%20blocking.
+
+
+Single responsibility principle:
+1. Code becomes more maintainible
+2. Testable
+3. Reusable
                                                                                                                             
