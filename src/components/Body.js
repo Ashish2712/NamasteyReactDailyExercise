@@ -3,15 +3,17 @@ import RestaurantCard from "./RestaurantCard";
 import resList from "../utils/mockData";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import UseOnlineStatus from "../utils/useOnlineStatus";
+
 
 const Body = () => {
   // Local state variable - Super powerful variable
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
+  const OnlineStatus = UseOnlineStatus();
 
   // whenever state updates, react triggers a reconciliation cycle(re-renders the component)
-  console.log("Body rendered");
 
   useEffect(() => {
     fetchData();
@@ -28,13 +30,13 @@ const Body = () => {
       }
 
       const data = await response.json();
-      console.log(data);
+      console.log(data.data);
 
       setListOfRestaurants(
-        data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants
+        data.data.cards[3].card.card.gridElements.infoWithStyle.restaurants
       ); // Assuming the restaurant data is under the 'data' property
       setFilteredRestaurants(
-        data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants
+        data.data.cards[3].card.card.gridElements.infoWithStyle.restaurants
       );
     } catch (error) {
       console.error("Error fetching data:", error.message);
@@ -51,6 +53,7 @@ const Body = () => {
     setFilteredRestaurants(filteredList);
   };
 
+  if(OnlineStatus === false) return <h1> OOPS!  Looks like you are offline please check you internet connection.</h1>
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
   ) : (
