@@ -33,10 +33,10 @@ const Body = () => {
       console.log(data.data);
 
       setListOfRestaurants(
-        data.data.cards[3].card.card.gridElements.infoWithStyle.restaurants
+        data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants
       ); // Assuming the restaurant data is under the 'data' property
       setFilteredRestaurants(
-        data.data.cards[3].card.card.gridElements.infoWithStyle.restaurants
+        data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants
       );
     } catch (error) {
       console.error("Error fetching data:", error.message);
