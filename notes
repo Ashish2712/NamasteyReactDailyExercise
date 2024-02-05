@@ -114,3 +114,7 @@ Ref: https://www.codementor.io/blog/react-optimization-5wiwjnf9hj
 20. Consider Server-side Rendering
 21. Enable Gzip Compression on Web Server
                                                                                                                             
+
+Tailwind css is postcss behind the scene which transforms CSS with Javascript
+npx tailwindcss init -> create a tailwind.config.js file
+postcssrc - configuration file for postcss
