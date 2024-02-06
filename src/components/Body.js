@@ -58,7 +58,7 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="body">
-      <div className="filter">
+      <div className="filter flex">
         <div className="search m-4 p-4">
           <input
             type="text"
@@ -68,7 +68,7 @@ const Body = () => {
               setSearchText(e.target.value);
             }}
           />
-          <button className="px-4 m-4 bg-green-200"
+          <button className="px-4 py-0 bg-green-100 m-4"
             onClick={() => {
               // filter the restaurant cards and update the UI
               // searchText
@@ -80,7 +80,6 @@ const Body = () => {
               setFilteredRestaurants(filteredRestaurant);
             }}
           >
-            {" "}
             Search
           </button>
         </div>
