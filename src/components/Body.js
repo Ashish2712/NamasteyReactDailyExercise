@@ -5,7 +5,6 @@ import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import UseOnlineStatus from "../utils/useOnlineStatus";
 
-
 const Body = () => {
   // Local state variable - Super powerful variable
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
@@ -53,7 +52,13 @@ const Body = () => {
     setFilteredRestaurants(filteredList);
   };
 
-  if(OnlineStatus === false) return <h1> OOPS!  Looks like you are offline please check you internet connection.</h1>
+  if (OnlineStatus === false)
+    return (
+      <h1>
+        {" "}
+        OOPS! Looks like you are offline please check you internet connection.
+      </h1>
+    );
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
   ) : (
@@ -68,7 +73,8 @@ const Body = () => {
               setSearchText(e.target.value);
             }}
           />
-          <button className="px-4 py-0 bg-green-100 m-4"
+          <button
+            className="px-4 py-0 bg-green-100 m-4"
             onClick={() => {
               // filter the restaurant cards and update the UI
               // searchText
@@ -87,7 +93,7 @@ const Body = () => {
           Top Rated Restaurants
         </button>
       </div>
-      <div className="res-container">
+      <div className="flex flex-wrap">
         {filteredRestaurants.map((restaurant) => (
           <Link
             key={restaurant.info.id}
@@ -102,3 +108,4 @@ const Body = () => {
 };
 
 export default Body;
+
