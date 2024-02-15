@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
 import resList from "../utils/mockData";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import UseOnlineStatus from "../utils/useOnlineStatus";
+import { MENU_API } from "../utils/constants";
 
 const Body = () => {
   // Local state variable - Super powerful variable
@@ -11,6 +12,8 @@ const Body = () => {
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
   const OnlineStatus = UseOnlineStatus();
+
+  const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
 
   // whenever state updates, react triggers a reconciliation cycle(re-renders the component)
 
@@ -20,16 +23,13 @@ const Body = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(
-        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.5355161&lng=77.3910265&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-      );
+      const response = await fetch(MENU_API);
 
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
 
       const data = await response.json();
-      console.log(data.data);
 
       setListOfRestaurants(
         data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants
@@ -44,11 +44,9 @@ const Body = () => {
   };
 
   const handleFilter = () => {
-    console.log(listOfRestaurants.length);
     const filteredList = listOfRestaurants.filter(
       (res) => res.info.avgRating > 4.2
     );
-    console.log(filteredList.length);
     setFilteredRestaurants(filteredList);
   };
 
@@ -78,7 +76,6 @@ const Body = () => {
             onClick={() => {
               // filter the restaurant cards and update the UI
               // searchText
-              console.log(searchText);
               const filteredRestaurant = listOfRestaurants.filter((res) =>
                 res.info.name.toLowerCase().includes(searchText.toLowerCase())
               );
@@ -99,7 +96,10 @@ const Body = () => {
             key={restaurant.info.id}
             to={"/restaurants/" + restaurant.info.id}
           >
-            <RestaurantCard resData={restaurant} />
+            {/* {restaurant.data.promoted ? (
+              <RestaurantCardPromoted resData={restaurant} />
+            ) : ( )*/}
+              <RestaurantCard resData={restaurant} />
           </Link>
         ))}
       </div>
@@ -108,4 +108,3 @@ const Body = () => {
 };
 
 export default Body;
-
