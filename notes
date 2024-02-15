@@ -118,3 +118,9 @@ Ref: https://www.codementor.io/blog/react-optimization-5wiwjnf9hj
 Tailwind css is postcss behind the scene which transforms CSS with Javascript
 npx tailwindcss init -> create a tailwind.config.js file
 postcssrc - configuration file for postcss
+
+
+Higher order components : A component that takes the component and returns a component(simply put
+a function that takes another function as input and returns another function)
+
+pure function : Function that doesn't change property of the function will called as pure function in js.
